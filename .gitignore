@@ -1,16 +1,65 @@
-# Node rules:
-## Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
-.grunt
 
-## Dependency directory
-## Commenting this out is preferred by some people, see
-## https://docs.npmjs.com/misc/faq#should-i-check-my-node_modules-folder-into-git
-node_modules
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.26;
 
-# Book build output
-_book
+contract Calculator {
 
-# eBook build output
-*.epub
-*.mobi
-*.pdf
+    function add(uint256 num1, uint256 num2) 
+     public pure returns (uint256) {
+     return num1 + num2;
+    }
+
+
+    function subtract(uint256 num1, uint256 num2) 
+      public pure returns (uint256) {
+      Require(num1 >= num2, "Result would be negative");
+      return num1 - num2;
+    }
+
+    function multiply(uint256 num1, uint256 num2) public pure returns (uint256) {
+        return num1 * num2;
+    }
+
+    function divide(uint256 num1, uint256 num2) public pure returns (uint256) {
+        require(num2 != 0, "Cannot divide by zero");
+        return num1 / num2;
+    }
+
+    function mod(uint256 num1, uint256 num2) public pure returns (uint256) {
+        require(num2 != 0, "Cannot modulo by zero");
+        return num1 % num2;
+    }
+}
+
+
+Provide sample inputs and outputs for each function to demonstrate correctness.
+ 
+
+Sample Inputs and Outputs
+
+1.Addition
+   // Input
+   uint256 result = (3 + 5);
+   // Output
+   // result will be 8
+
+2.Subtraction
+   // Input
+   uint256 result = (10 - 4);
+   // Output
+   // result will be 6
+Attempting to subtract a larger number  will revert with "Subtraction underflow"
+
+
+3.  Multiplication
+   // Input
+   uint256 result = (6 * 7);
+   // Output
+   // result will be 42
+   ```
+
+4.  Division
+   // Input
+   uint256 result = divide (20,4);
+   // Output
+   // result will be 5
